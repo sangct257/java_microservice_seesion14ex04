@@ -1,0 +1,29 @@
+services:
+  user-db:
+    image: postgres:17
+    container_name: user-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: user_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1234
+    ports:
+      - 5433:5432
+    volumes:
+      - user_db_data:/var/lib/postgresql/data
+
+  product-db:
+    image: postgres:17
+    container_name: product-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: product_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1234
+    ports:
+      - 5434:5432
+    volumes:
+      - product_db_data:/var/lib/postgresql/data
+volumes:
+  user_db_data:
+  product_db_data:

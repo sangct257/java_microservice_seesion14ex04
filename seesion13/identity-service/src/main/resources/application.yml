@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: identity-service
+  config:
+    import: optional:configserver:http://localhost:8888/
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
+jwt-scecret: chukibimatdetaorachuoitokenphaidudaineukhongsebinemloi
+jwt-expiration: 900000 # 15 mins
+jwt-refresh-expiration: 604800000 # 7 days

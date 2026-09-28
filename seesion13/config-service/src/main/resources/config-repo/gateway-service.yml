@@ -1,0 +1,29 @@
+server:
+  port: 8080
+
+spring:
+  # đăng ký định tuyến động
+  cloud:
+    gateway:
+      server:
+        webflux:
+          # Định tuyến động qua Eureka Discovery
+          discovery:
+            locator:
+              enabled: true
+              lower-case-service-id: true
+          # Định nghĩa danh sách routes thủ công
+#          routes:
+#            - id: identity-service
+#              uri: lb://identity-service
+#              predicates:
+#                - Path=/api/auth/**
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
